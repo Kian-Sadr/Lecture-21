@@ -11,5 +11,5 @@ function print(msg){
 function getPromise(){
     let url = link.value;
     output.textContent = "";
-    //Incomplete
+    
 }
