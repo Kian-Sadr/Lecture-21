@@ -11,5 +11,14 @@ function print(msg){
 async function readContent(){
     let url = link.value;
     output.textContent = "";
-    //Incomplete
+    try{
+        const response = await fetch(url);
+        if(!response.ok){
+            throw new Error("HTTP error: "+response.status);
+        }
+        const data = await response.json();
+        print("Data: "+JSON.stringify(data));
+    } catch(error){
+        print("Could not read data: " + error.message);
+    }
 }
